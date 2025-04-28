@@ -1,0 +1,58 @@
+name: Render Applications
+
+on:
+  pull_request:
+    paths:
+      - 'apps/**'
+      - 'apps-rendered/**'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.21'
+
+      - name: Setup Git for private modules
+        run: |
+          git config --global url."https://${{ secrets.KITE_GITHUB_PAT }}@github.com/".insteadOf "https://github.com/"
+          
+      - name: Install kite
+        run: |
+          go install github.com/kitemcp/kite@latest
+        env:
+          GOPRIVATE: "github.com/kitemcp/*"
+        
+      - name: Render applications
+        run: make fly-render
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if [[ -n $(git status --porcelain) ]]; then
+            echo "changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push changes
+        if: steps.check_changes.outputs.changes == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add .
+          git commit -m "Automatically render application updates"
+          git push 
