@@ -12,8 +12,9 @@ It maintains both application specifications and their rendered deployment outpu
 |-------------|-----|-------------|
 | Inspector | https://kite-public-mcp-inspector.fly.dev/ | Inspects incoming requests and provides details |
 | Text Extractor | https://kite-public-mcp-text-extractor.fly.dev/mcp | Extracts text from various content |
-| Time Server | https://kite-public-mcp-time.fly.dev/ | Provides time-related functionality |
-| Everything Server | https://kite-public-mcp-everything.fly.dev/ | Multi-purpose server with various capabilities |
+| Time Server | https://kite-public-mcp-time.fly.dev/mcp | Provides time-related functionality |
+| Everything Server | https://kite-public-mcp-everything.fly.dev/mcp | Multi-purpose server with various capabilities |
+| Echo Server | https://kite-public-mcp-echo.fly.dev/mcp | Returns the request data back to the sender, useful for debugging and testing clients and applications |
 
 ## Structure
 
