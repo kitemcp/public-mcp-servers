@@ -6,11 +6,11 @@ This repository contains specifications for applications that are hosted by Kite
 
 It maintains both application specifications and their rendered deployment outputs.
 
-## Available Applications
+## Available MCP Server Endpoints
 
 | Application | URL | Description |
 |-------------|-----|-------------|
-| Inspector | https://kite-public-mcp-inspector.fly.dev/ | Inspects incoming requests and provides details |
+| Inspector | https://kite-mcp-inspector.fly.dev/ | Inspects incoming requests and provides details |
 | Text Extractor | https://text-extractor.mcp.inevitable.fyi/mcp | Extracts text from various content |
 | Time Server | https://time.mcp.inevitable.fyi/mcp | Provides time-related functionality |
 | Everything Server | https://everything.mcp.inevitable.fyi/mcp | Multi-purpose server with various capabilities |
