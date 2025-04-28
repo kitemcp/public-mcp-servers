@@ -22,6 +22,16 @@ These servers are freely available for public use, primarily intended for hobby 
 
 ## Getting Started
 
+### Connecting with MCP Clients
+
+The most straightforward way to use these servers is by connecting with an MCP client:
+
+- **MCP SDK-based Applications**: Integrate with any of the MCP servers using official SDKs like the TypeScript SDK (example below)
+- **Existing MCP Applications**: Configure your MCP-compatible applications to use these server endpoints
+- **Custom MCP Clients**: Point your custom MCP client implementations to these servers for testing
+
+Simply configure your client to connect to any of the server endpoints listed above. All servers accept connections at their `/mcp` endpoint.
+
 ### Connecting to MCP Servers
 
 You can interact with any of the MCP servers using standard HTTP requests. All servers implement the MCP specification and accept POST requests to their `/mcp` endpoint.
@@ -112,16 +122,15 @@ const result = await client.callTool({
 console.log(result);
 ```
 
+## How to Add a New Server
 
-## Structure
+This repository follows a GitOps workflow for adding and deploying new MCP servers:
+
+**Structure**
 
 - `apps/` - Contains YAML specifications for applications to be deployed
 - `apps-rendered/` - Contains the rendered deployment artifacts generated from specifications
 - `Makefile` - Contains commands for building and deploying applications
-
-## How to Add a New Server
-
-This repository follows a GitOps workflow for adding and deploying new MCP servers:
 
 1. **Create a Server Specification**: 
    - Add a new YAML file in the `apps/` directory with your server configuration
