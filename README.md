@@ -1,6 +1,6 @@
 # Kite Applications
 
-This repository contains specifications for applications that are hosted by Kite with Kite. These servers are freely available for public use, intended for hobby projects or testing purposes.
+This repository contains specifications for MCP Servers that are hosted on fly.io using Kite. These servers are freely available for public use, intended for hobby projects or testing purposes.
 
 It maintains both application specifications and their rendered deployment outputs.
 
