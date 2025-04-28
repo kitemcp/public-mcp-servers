@@ -1,4 +1,4 @@
-# Kite Applications
+# Public MCP Servers
 
 This repository contains specifications for MCP Servers that are hosted on fly.io using Kite. These servers are freely available for public use, intended for hobby projects or testing purposes.
 
