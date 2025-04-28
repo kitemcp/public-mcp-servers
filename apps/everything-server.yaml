@@ -19,4 +19,4 @@ scaling:
 
 environment:
   - name: KITE_ID
-    value: "everything-server"
+    value: "public-everything-server"
