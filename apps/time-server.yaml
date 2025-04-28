@@ -1,0 +1,23 @@
+metadata:
+  name: "kite-public-mcp-time"
+  organization: "personal"
+
+runtime:
+  type: docker
+  source:
+    docker:
+      image: "jhgaylor/typescript-mcp-server-time:main"
+
+transport:
+  type: http
+  port: 8080
+
+scaling:
+  minReplicas: 0
+  maxReplicas: 1
+
+environment:
+  - name: KITE_ID
+    value: "time-server"
+  - name: PORT
+    value: "8080"

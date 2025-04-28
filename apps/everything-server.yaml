@@ -1,0 +1,22 @@
+metadata:
+  name: "kite-public-mcp-everything"
+  organization: "personal"
+
+runtime:
+  type: docker
+  source:
+    docker:
+      image: "jhgaylor/mcp-server-everything:latest"
+      command: "node dist/streamableHttp.js"
+
+transport:
+  type: http
+  port: 3001
+
+scaling:
+  minReplicas: 0
+  maxReplicas: 1
+
+environment:
+  - name: KITE_ID
+    value: "everything-server"

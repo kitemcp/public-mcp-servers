@@ -1,0 +1,23 @@
+metadata:
+  name: "kite-public-mcp-text-extractor"
+  organization: "personal"
+
+runtime:
+  type: docker
+  source:
+    docker:
+      image: "jhgaylor/mcp-server-text-extractor:latest"
+
+transport:
+  type: http
+  port: 8080
+
+scaling:
+  minReplicas: 0
+  maxReplicas: 1
+
+environment:
+  - name: KITE_ID
+    value: "text-extractor-server"
+  - name: PORT
+    value: "8080"

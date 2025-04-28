@@ -1,0 +1,26 @@
+metadata:
+  name: "kite-public-mcp-inspector"
+  organization: "personal"
+
+runtime:
+  type: docker
+  source:
+    docker:
+      image: "jhgaylor/mcp-inspector:latest"
+
+scaling:
+  minReplicas: 0
+
+transport:
+  type: http
+  port: 6274
+  additional_ports:
+    - internal_port: 6277
+      protocol: tcp
+      external_port: 6277
+      tls: true
+      http: true
+
+environment:
+  - name: KITE_ID
+    value: "mcp-inspector"
