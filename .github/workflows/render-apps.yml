@@ -37,7 +37,7 @@ jobs:
           GOPRIVATE: "github.com/kitemcp/*"
         
       - name: Render applications
-        run: make fly-render
+        run: make render
 
       - name: Check for changes
         id: check_changes

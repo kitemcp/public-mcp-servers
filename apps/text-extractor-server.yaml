@@ -18,6 +18,6 @@ scaling:
 
 environment:
   - name: KITE_ID
-    value: "text-extractor-server"
+    value: "public-text-extractor-server"
   - name: PORT
     value: "8080"

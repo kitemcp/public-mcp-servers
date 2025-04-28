@@ -1,0 +1,27 @@
+app: kite-public-mcp-inspector
+primary_region: dfw
+org: personal
+vm:
+    - cpu_kind: shared
+      cpus: 1
+      memory_mb: 1024
+http_service:
+    auto_start_machines: true
+    auto_stop_machines: true
+    force_https: true
+    internal_port: 6274
+services:
+    - internal_port: 6277
+      protocol: tcp
+      ports:
+        - port: 6277
+          handlers:
+            - http
+            - tls
+source:
+    type: local
+    path: .
+build:
+    image: jhgaylor/mcp-inspector:latest
+env:
+    KITE_ID: public-mcp-inspector

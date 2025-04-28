@@ -1,0 +1,4 @@
+project: fly-cloud
+source:
+    type: local
+    path: .
