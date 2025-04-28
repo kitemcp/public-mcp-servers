@@ -1,11 +1,24 @@
 # Kite Applications
 
-This repository contains specifications for applications that will be deployed to the fly cloud using the kite deployment system. It maintains both application specifications and their rendered deployment outputs.
+# Kite Applications
+
+This repository contains specifications for applications that are hosted by Kite with Kite. These servers are freely available for public use, intended for hobby projects or testing purposes.
+
+It maintains both application specifications and their rendered deployment outputs.
+
+## Available Applications
+
+| Application | URL | Description |
+|-------------|-----|-------------|
+| Inspector | https://kite-public-mcp-inspector.fly.dev/ | Inspects incoming requests and provides details |
+| Text Extractor | https://kite-public-mcp-text-extractor.fly.dev/mcp | Extracts text from various content |
+| Time Server | https://kite-public-mcp-time.fly.dev/ | Provides time-related functionality |
+| Everything Server | https://kite-public-mcp-everything.fly.dev/ | Multi-purpose server with various capabilities |
 
 ## Structure
 
 - `apps/` - Contains YAML specifications for applications to be deployed
-- `apps-out/` - Contains the rendered deployment artifacts generated from specifications
+- `apps-rendered/` - Contains the rendered deployment artifacts generated from specifications
 - `Makefile` - Contains commands for building and deploying applications
 
 ## Workflow
@@ -22,8 +35,7 @@ To add a new application:
 1. Create a new YAML file in the `apps/` directory
 2. Define the application metadata, runtime, scaling, and transport configuration
 3. Create a pull request
-4. Wait for the automated action to render the deployment artifacts
-5. Review the changes and merge when ready
+4. Make an argument for the server being available for everyone.
 
 ## Example Application Specification
 
@@ -48,9 +60,6 @@ transport:
 
 ## Commands
 
-- `make fly` - Generate fly deployment configuration
-- `make helm` - Generate Kubernetes Helm charts
-- `make k8s` - Generate Kubernetes manifests
-- `make k8s-kustomize` - Generate Kubernetes Kustomize configuration
-- `make all` - Generate all deployment configurations
-- `make clean` - Clean up generated output
+- `make render` - Generate deployment artifacts from application specifications
+- `make deploy` - Deploy applications to the fly cloud using kite
+- `make clean` - Clean up generated output files in the apps-rendered directory
